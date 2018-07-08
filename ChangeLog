@@ -1,0 +1,80 @@
+liblwp-useragent-determined-perl (1.07-1) unstable; urgency=low
+
+  [ Salvatore Bonaccorso ]
+  * Change Vcs-Git to canonical URI (git://anonscm.debian.org)
+  * Change search.cpan.org based URIs to metacpan.org based URIs
+
+  [ gregor herrmann ]
+  * debian/control: remove Nicholas Bamber from Uploaders on request of
+    the MIA team.
+  * Strip trailing slash from metacpan URLs.
+
+  [ Axel Beckert ]
+  * Fix typo in Homepage header (Thanks DUCK!)
+
+  [ gregor herrmann ]
+  * New upstream release.
+  * Update years of packaging copyright.
+  * Declare compliance with Debian Policy 3.9.5.
+
+ -- gregor herrmann <gregoa@debian.org>  Thu, 26 Jun 2014 20:32:32 +0200
+
+liblwp-useragent-determined-perl (1.06-1) unstable; urgency=low
+
+  [ Ansgar Burchardt ]
+  * debian/control: Convert Vcs-* fields to Git.
+
+  [ gregor herrmann ]
+  * New upstream release.
+  * debian/copyright: update to Copyright-Format 1.0.
+  * Bump Standards-Version to 3.9.3 (no changes).
+  * Set debhelper compatibility level to 8.
+  * Split Build-Depends and -Indep.
+  * Drop nonetwork.patch, the test now works without network access.
+  * Add /me to Uploaders.
+
+ -- gregor herrmann <gregoa@debian.org>  Fri, 08 Jun 2012 22:20:00 +0200
+
+liblwp-useragent-determined-perl (1.05-1) unstable; urgency=low
+
+  [ Nathan Handler ]
+  * debian/watch: Update to ignore development releases.
+
+  [ Ryan Niebur ]
+  * Update ryan52's email address
+
+  [ Nicholas Bamber ]
+  * Adding myself to Uploaders 
+  * New upstream release
+  * Upped standards version
+  * Refreshed copyright
+  * echo '3.0 (quilt)' > debian/source/format
+  * Refreshed debian/rules including patch to disable network test
+
+  [ gregor herrmann ]
+  * debian/control: lower required debhelper version to 7.
+
+ -- Nicholas Bamber <nicholas@periapt.co.uk>  Wed, 05 Jan 2011 00:01:21 +0000
+
+liblwp-useragent-determined-perl (1.04-1) unstable; urgency=low
+
+  [ gregor herrmann ]
+  * debian/watch: use dist-based URL.
+  * debian/control: Changed: Switched Vcs-Browser field to ViewSVN
+    (source stanza).
+
+  [ Ryan Niebur ]
+  * New upstream release
+  * Add myself to Uploaders
+  * Debian Policy 3.8.1
+  * refresh debian/rules
+  * machine readable copyright format
+  * remove docs
+
+ -- Ryan Niebur <ryanryan52@gmail.com>  Sat, 18 Apr 2009 10:15:57 -0700
+
+liblwp-useragent-determined-perl (1.03-1) unstable; urgency=low
+
+  * Initial debianisation.
+
+ -- Joey Hess <joeyh@debian.org>  Wed, 07 May 2008 18:56:38 -0400
