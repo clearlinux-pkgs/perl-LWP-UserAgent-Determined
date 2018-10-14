@@ -4,21 +4,15 @@
 #
 Name     : perl-LWP-UserAgent-Determined
 Version  : 1.07
-Release  : 1
+Release  : 2
 URL      : https://cpan.metacpan.org/authors/id/A/AL/ALEXMV/LWP-UserAgent-Determined-1.07.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/A/AL/ALEXMV/LWP-UserAgent-Determined-1.07.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libl/liblwp-useragent-determined-perl/liblwp-useragent-determined-perl_1.07-1.debian.tar.xz
 Summary  : 'a virtual browser that retries errors'
 Group    : Development/Tools
 License  : Artistic-1.0 GPL-1.0
-Requires: perl-LWP-UserAgent-Determined-license
-Requires: perl-LWP-UserAgent-Determined-man
-Requires: perl(HTTP::Date)
-Requires: perl(HTTP::Request)
-Requires: perl(LWP)
-Requires: perl(LWP::UserAgent)
-Requires: perl(Try::Tiny)
-Requires: perl(URI)
+Requires: perl-LWP-UserAgent-Determined-license = %{version}-%{release}
+BuildRequires : buildreq-cpan
 BuildRequires : perl(HTTP::Date)
 BuildRequires : perl(HTTP::Request)
 BuildRequires : perl(LWP)
@@ -31,6 +25,15 @@ Time-stamp: "2004-04-08 22:37:47 ADT"
 NAME
 LWP::UserAgent::Determined - a virtual browser that retries errors
 
+%package dev
+Summary: dev components for the perl-LWP-UserAgent-Determined package.
+Group: Development
+Provides: perl-LWP-UserAgent-Determined-devel = %{version}-%{release}
+
+%description dev
+dev components for the perl-LWP-UserAgent-Determined package.
+
+
 %package license
 Summary: license components for the perl-LWP-UserAgent-Determined package.
 Group: Default
@@ -39,19 +42,11 @@ Group: Default
 license components for the perl-LWP-UserAgent-Determined package.
 
 
-%package man
-Summary: man components for the perl-LWP-UserAgent-Determined package.
-Group: Default
-
-%description man
-man components for the perl-LWP-UserAgent-Determined package.
-
-
 %prep
-tar -xf %{SOURCE1}
-cd ..
 %setup -q -n LWP-UserAgent-Determined-1.07
-mkdir -p %{_topdir}/BUILD/LWP-UserAgent-Determined-1.07/deblicense/
+cd ..
+%setup -q -T -D -n LWP-UserAgent-Determined-1.07 -b 1
+mkdir -p deblicense/
 mv %{_topdir}/BUILD/debian/* %{_topdir}/BUILD/LWP-UserAgent-Determined-1.07/deblicense/
 
 %build
@@ -76,12 +71,12 @@ make TEST_VERBOSE=1 test
 
 %install
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/perl-LWP-UserAgent-Determined
-cp deblicense/copyright %{buildroot}/usr/share/doc/perl-LWP-UserAgent-Determined/deblicense_copyright
+mkdir -p %{buildroot}/usr/share/package-licenses/perl-LWP-UserAgent-Determined
+cp deblicense/copyright %{buildroot}/usr/share/package-licenses/perl-LWP-UserAgent-Determined/deblicense_copyright
 if test -f Makefile.PL; then
-make pure_install PERL_INSTALL_ROOT=%{buildroot}
+make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
-./Build install --installdirs=site --destdir=%{buildroot}
+./Build install --installdirs=vendor --destdir=%{buildroot}
 fi
 find %{buildroot} -type f -name .packlist -exec rm -f {} ';'
 find %{buildroot} -depth -type d -exec rmdir {} 2>/dev/null ';'
@@ -90,12 +85,12 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.26.1/LWP/UserAgent/Determined.pm
+/usr/lib/perl5/vendor_perl/5.26.1/LWP/UserAgent/Determined.pm
 
-%files license
-%defattr(-,root,root,-)
-/usr/share/doc/perl-LWP-UserAgent-Determined/deblicense_copyright
-
-%files man
+%files dev
 %defattr(-,root,root,-)
 /usr/share/man/man3/LWP::UserAgent::Determined.3
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/perl-LWP-UserAgent-Determined/deblicense_copyright

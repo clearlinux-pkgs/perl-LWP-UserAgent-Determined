@@ -1,0 +1,7 @@
+1.07
+perl(HTTP::Date)
+perl(HTTP::Request)
+perl(LWP)
+perl(LWP::UserAgent)
+perl(Try::Tiny)
+perl(URI)
