@@ -4,7 +4,7 @@
 #
 Name     : perl-LWP-UserAgent-Determined
 Version  : 1.07
-Release  : 13
+Release  : 14
 URL      : https://cpan.metacpan.org/authors/id/A/AL/ALEXMV/LWP-UserAgent-Determined-1.07.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/A/AL/ALEXMV/LWP-UserAgent-Determined-1.07.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libl/liblwp-useragent-determined-perl/liblwp-useragent-determined-perl_1.07-1.debian.tar.xz
@@ -84,7 +84,7 @@ make TEST_VERBOSE=1 test
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-LWP-UserAgent-Determined
-cp %{_builddir}/LWP-UserAgent-Determined-1.07/deblicense/copyright %{buildroot}/usr/share/package-licenses/perl-LWP-UserAgent-Determined/c3f9385a271326a9c1948f98c1e7f7a06c724203
+cp %{_builddir}/debian/copyright %{buildroot}/usr/share/package-licenses/perl-LWP-UserAgent-Determined/c3f9385a271326a9c1948f98c1e7f7a06c724203
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -108,4 +108,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.1/LWP/UserAgent/Determined.pm
+/usr/lib/perl5/vendor_perl/5.30.2/LWP/UserAgent/Determined.pm
