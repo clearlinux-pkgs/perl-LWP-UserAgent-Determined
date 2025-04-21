@@ -7,7 +7,7 @@
 #
 Name     : perl-LWP-UserAgent-Determined
 Version  : 1.07
-Release  : 34
+Release  : 35
 URL      : https://cpan.metacpan.org/authors/id/A/AL/ALEXMV/LWP-UserAgent-Determined-1.07.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/A/AL/ALEXMV/LWP-UserAgent-Determined-1.07.tar.gz
 Source1  : http://http.debian.net/debian/pool/main/libl/liblwp-useragent-determined-perl/liblwp-useragent-determined-perl_1.07-1.debian.tar.xz
